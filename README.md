@@ -1,0 +1,38 @@
+
+- FastAPI is a Web framework for developing RESTful APIs in Python. 
+- FastAPI is based on Pydantic and type hints to validate, serialize, and deserialize data, and automatically auto-generate OpenAPI documents. 
+- It fully supports asynchronous programming and can run with Uvicorn and Gunicorn.
+- Example
+	- https://github.com/FrancisChung/RealPythonFastAPI/blob/master/main.py
+
+# Steps
+- Create new and move to directory
+- Create virtual environment
+	- python -m venv .env
+	- code .
+- In vscode, open Command Pallete
+	- type: python select interpreter
+	- select python version > 3.6
+	- Open new terminal then it will take the created environment
+- Install fastapi - python -m pip install fastapi
+- Create main.py
+	- from fastapi import FastAPI
+	- app = FastAPI()
+	- code
+		- @app.get("/")
+		- async def root():
+			- return {"message": "hello world"}
+- ASGI - async server gateway interface
+	- python -m pip install uvicorn
+- Run server using uvicorn
+	- uvicorn main:app --host "0.0.0.0" --port 8000 --reload
+- Open url in browser
+	- localhost:8000
+- API Docs
+	- http://localhost:8000/docs/
+- Run server using httpie
+	- python -m pip install httpie
+	- http localhost:8000
+	- Note: keep uvicorn server running and run httpie command in new terminal
+- Call POST method using httpie
+	- http POST localhost:8000
